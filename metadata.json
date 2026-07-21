@@ -1,0 +1,6 @@
+{
+  "name": "প্রাথমিক বিদ্যালয় অফিস সহায়ক বাংলাদেশ",
+  "description": "সকল সরকারি প্রাথমিক বিদ্যালয়ের দপ্তরী ও নৈশপ্রহরীদের সঠিক যোগাযোগ ও সাংগঠনিক তথ্য এক ক্লিকেই খুজে নিন।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

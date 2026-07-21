@@ -1,0 +1,113 @@
+{
+  "entities": {
+    "Profile": {
+      "title": "Profile",
+      "description": "Registered member profile information.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fullName": { "type": "string" },
+        "username": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "facebookUrl": { "type": "string" },
+        "position": { "type": "string" },
+        "district": { "type": "string" },
+        "upazila": { "type": "string" },
+        "unionName": { "type": "string" },
+        "schoolName": { "type": "string" },
+        "aboutMe": { "type": "string" },
+        "fatherName": { "type": "string" },
+        "motherName": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "createdAt": { "type": "string" },
+        "photo": { "type": "string" }
+      },
+      "required": ["id", "fullName", "phoneNumber", "position", "district", "upazila", "schoolName", "status", "createdAt"]
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "System customization and configuration settings.",
+      "type": "object",
+      "properties": {
+        "fieldsConfig": { "type": "object" },
+        "positions": { "type": "array" },
+        "locations": { "type": "array" },
+        "customization": { "type": "object" }
+      }
+    },
+    "AdminConfig": {
+      "title": "AdminConfig",
+      "description": "Admin accounts and access configuration.",
+      "type": "object",
+      "properties": {
+        "admins": { "type": "array" }
+      }
+    },
+    "AiSettings": {
+      "title": "AiSettings",
+      "description": "Secure AI models and API keys configuration for failover routing.",
+      "type": "object",
+      "properties": {
+        "configs": { "type": "array" }
+      }
+    },
+    "ChatSession": {
+      "title": "ChatSession",
+      "description": "User chat conversation session logs for admin review.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "lastMessageAt": { "type": "string" },
+        "messages": { "type": "array" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "lastMessageAt", "messages", "createdAt"]
+    },
+    "LiveMessage": {
+      "title": "LiveMessage",
+      "description": "Direct temporary messages between user and admin.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "chatId": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "content": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "isEdited": { "type": "boolean" },
+        "isDeleted": { "type": "boolean" }
+      },
+      "required": ["id", "chatId", "senderId", "senderName", "content", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/profiles/{profileId}": {
+      "schema": "Profile",
+      "description": "Collection of all daptori and nightguard profiles."
+    },
+    "/config/settings": {
+      "schema": "Settings",
+      "description": "Global website configuration settings."
+    },
+    "/config/admin-config": {
+      "schema": "AdminConfig",
+      "description": "Superadmin and admin accounts access configuration."
+    },
+    "/config/ai_settings": {
+      "schema": "AiSettings",
+      "description": "Secure configurations for SOHOKARI assistant routing."
+    },
+    "/chats/{chatId}": {
+      "schema": "ChatSession",
+      "description": "Real-time user chat conversations for admin monitoring."
+    },
+    "/live_messages/{messageId}": {
+      "schema": "LiveMessage",
+      "description": "Collection of all live user-admin direct messages."
+    }
+  }
+}

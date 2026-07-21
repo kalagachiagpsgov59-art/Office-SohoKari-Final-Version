@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /rifat-admin
+Disallow: /rifat-admin/
+Disallow: /admin-config.json
+
+Sitemap: https://officesohayok.netlify.app/sitemap.xml
